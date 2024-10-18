@@ -12,39 +12,37 @@ import slide1 from '../assets/banner/slide1.jpg';
 import slide2 from '../assets/banner/slide2.jpg';
 import slide3 from '../assets/banner/slide3.jpg';
 
-const Carousel=() => {
+const Carousel = () => {
   const images = [slide, slide1, slide2, slide3];
 
   return (
-    <div className="w-full">
-           
+    <div className="w-full h-[60vh] md:h-[80vh]"> {/* Responsive height */}
       <Swiper
         modules={[Navigation, Pagination, Scrollbar, A11y]}
-        spaceBetween={0} // Set space between slides to 0
-        slidesPerView={1} // Start with one slide on mobile
+        spaceBetween={0}
+        slidesPerView={1}
         navigation={{
           nextEl: '.swiper-button-next',
           prevEl: '.swiper-button-prev',
           style: {
-            color: 'gray', // Inline style for navigation arrows
+            color: 'gray',
           },
         }}
         pagination={{
           clickable: true,
-          renderBullet: (index, className) => (
-            `<span class="${className}" style="background-color: gray;"></span>` // Inline style for pagination bullets
-          ),
+          renderBullet: (index, className) =>
+            `<span class="${className}" style="background-color: gray;"></span>`,
         }}
         scrollbar={{ draggable: true }}
         loop={true}
-        className="w-full" // Ensure Swiper takes full width
+        className="w-full h-full" // Make sure Swiper takes the full height and width
       >
         {images.map((src, index) => (
-          <SwiperSlide key={index} style={{ width: '100%' }}>
+          <SwiperSlide key={index} className="flex justify-center items-center h-full">
             <img
               src={src}
               alt={`Slide ${index + 1}`}
-              style={{ display: 'block', width: '100%', height: 'auto' }} // Ensure images are responsive
+              className="w-full h-full object-cover" // Ensure the image covers the entire slide space
             />
           </SwiperSlide>
         ))}
@@ -53,4 +51,4 @@ const Carousel=() => {
   );
 };
 
-export default Carousel
+export default Carousel;
