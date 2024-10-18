@@ -4,13 +4,13 @@ import { SparklesCore } from "./why";
 
 export function SparklesPreview() {
   const features = [
-    "One of the largest in Kerala.",
-    "Fully Airconditioned.",
-    "Best strength and cardio equipment in the industry.",
-    "European imported gym floor.",
-    "Best crossfit policy.",
-    "Steam and spa facility.",
-    "Spacious vehicle parking area."
+    "✌️ One of the largest in Kerala.",
+    "😶‍🌫️ Fully Airconditioned.",
+    "💪 Best strength and cardio equipment in the industry.",
+    "🧱 European imported gym floor.",
+    "🤝 Best crossfit policy.",
+    "♨️ Steam and spa facility.",
+    "🅿️ Spacious vehicle parking area."
   ];
 
   return (
@@ -38,9 +38,9 @@ export function SparklesPreview() {
         {/* Radial Gradient to prevent sharp edges */}
         <div className="absolute inset-0 w-full h-full bg-black [mask-image:radial-gradient(350px_200px_at_top,transparent_20%,white)]"></div>
       </div>
-      <ul className="mt-4 space-y-2 px-4 sm:px-10 md:px-20 lg:px-32">
+      <ul className="mt-4 space-y-2 px-4 sm:px-10 md:px-20 lg:px-32 ">
         {features.map((feature, index) => (
-          <li key={index} className="text-white text-lg md:text-xl text-center">
+          <li key={index} className="text-white text-lg md:text-xl text-center ">
             {feature}
           </li>
         ))}

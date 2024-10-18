@@ -1,35 +1,46 @@
-import React from 'react';
-import Carousel from './Carousel';
-import { SparklesPreview } from './ui/sparkles';
-import { FeaturesSectionDemo } from './ui/cards';
+import React from "react";
+import Carousel from "./Carousel";
+import { SparklesPreview } from "./ui/sparkles";
+import { FeaturesSectionDemo } from "./ui/cards";
+import sparatans from "../assets/sparatans.jpg";
 
-import { LampDemo } from './ui/Lamp';
-
+import { LampDemo } from "./ui/Lamp";
 
 const HomePage = () => {
   return (
-    
     <div className="bg-black min-h-screen">
-    {/* <main className="w-full px-4 sm:px-6 lg:px-8 py-12"> */}
-    
+      {/* <main className="w-full px-4 sm:px-6 lg:px-8 py-12"> */}
+
       <div className="text-center ">
-        
-        <div> 
+        <div>
           <Carousel />
         </div>
-        {/* <h1 className="text-4xl font-extrabold text-white sm:text-5xl md:text-6xl">
-          Welcome to Gym
-        </h1>
-        <p className="mt-3 max-w-md mx-auto text-base text-white sm:text-lg md:mt-5 md:text-xl md:max-w-3xl">
-          Transform your body, elevate your mind. Join us for a fitness journey like no other.
-        </p> */}
       </div>
-  
-      <div className="">
-  <SparklesPreview />
-</div>
+      <div className="flex flex-col md:flex-row items-center text-center md:text-left md:items-start max-w-7xl pt-20 mx-auto">
+        <div className="md:w-1/2 md:pr-8">
+          <img
+            src={sparatans}
+            alt="Agoge Spartan Training"
+            className="w-full rounded-lg shadow-lg "
+          />
+        </div>
+        <div className="md:w-1/2">
+          <h4 className="text-4xl font-extrabold text-white sm:text-5xl md:text-6xl pt-4">
+            This is SPARTA !!!
+          </h4>
+          <p className="mt-3 max-w-md mx-auto text-base text-white sm:text-lg md:mt-5 md:text-xl md:max-w-3xl">
+            Agoge is a structured rigorous physical strength training, stealth
+            training, and social life skill training mandated for the SPARTANS
+            in ancient Greece. AGOGE meant "rearing" in Greek and fits perfectly
+            with our fitness center concept.
+          </p>
+        </div>
+      </div>
 
-  
+      <div className="pt-9">
+        <SparklesPreview />
+      </div>
+
       {/* Uncomment if needed
       <div className="mt-10">
         <h2 className="text-2xl font-semibold text-white text-center">Our Services</h2>
@@ -53,14 +64,13 @@ const HomePage = () => {
           ))}
         </div>
       </div> */}
-  
+
       <FeaturesSectionDemo />
       <div>
         <LampDemo />
       </div>
-    {/* </main> */}
-  </div>
-  
+      {/* </main> */}
+    </div>
   );
 };
 
