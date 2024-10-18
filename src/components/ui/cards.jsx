@@ -1,4 +1,8 @@
 import { cn } from "../../lib/utils";
+import icon1 from '../../assets/icon1.png'
+import icon2 from '../../assets/icon2.png'
+import icon3 from '../../assets/icon3.png'
+import icon4 from '../../assets/icon4.png'
 
 
 export function FeaturesSectionDemo() {
@@ -10,7 +14,7 @@ export function FeaturesSectionDemo() {
         "Attractive family packages",
         "Corporate packages designed for you", 
       ],
-      logo: "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLXNoaWVsZC1jaGVjayI+PHBhdGggZD0iTTIwIDEzYzAgNS0zLjUgNy41LTcuNjYgOC45NWExIDEgMCAwIDEtLjY3LS4wMUM3LjUgMjAuNSA0IDE4IDQgMTNWNmExIDEgMCAwIDEgMS0xYzIgMCA0LjUtMS4yIDYuMjQtMi43MmExLjE3IDEuMTcgMCAwIDEgMS41MiAwQzE0LjUxIDMuODEgMTcgNSAxOSA1YTEgMSAwIDAgMSAxIDF6Ii8+PHBhdGggZD0ibTkgMTIgMiAyIDQtNCIvPjwvc3ZnPg==", // Replace with the actual path to your image
+      logo: icon1
     },
     {
       title: "Personal Training at its Best",
@@ -19,7 +23,7 @@ export function FeaturesSectionDemo() {
         "100% assured weight gain and loss program",
         "Strength training for all levels",
       ],
-      logo: ''
+      logo:icon2
     },
     {
       title: "Exclusive Services for Women",
@@ -28,7 +32,7 @@ export function FeaturesSectionDemo() {
         "Exclusive gym floor for women",
         "Attractive family packages",
       ],
-      logo:"",
+      logo: icon3
     },
     {
       title: "Build Your Career with Us",
@@ -36,7 +40,7 @@ export function FeaturesSectionDemo() {
         "Structured training for aspiring trainers",
         "Government-approved certification",
       ],
-      logo: "" 
+      logo: icon4
     },
   ];
 
@@ -58,12 +62,12 @@ const Feature = ({ title, description, logo, index }) => {
         index < 2 && "lg:border-b dark:border-neutral-800"
       )}
     >
-      <div className="mb-6 relative z-10">
+      <div className="mb-6 relative z-10 ">
         {logo && (
           <img
             src={logo}
             alt={`${title} logo`}
-            className="h-16 w-16 mb-4 mx-auto"
+            className="h-16 w-16 mb-4 mx-auto group-hover:text-yellow-500 transition-colors duration-300"
           />
         )}
       </div>
