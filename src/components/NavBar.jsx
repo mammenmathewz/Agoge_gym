@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Menu, X } from 'lucide-react';
-
+import logo from '../assets/logo.png'
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -17,11 +17,11 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="bg-black text-white">
+    <nav className="bg-black text-white relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
-            <a href="#" className="text-xl font-bold">Gym</a>
+            <img src={logo} alt="Logo" className="h-10" />
           </div>
           <div className="hidden md:block">
             <div className="ml-10 flex items-baseline space-x-4">
@@ -61,6 +61,7 @@ const Navbar = () => {
           </div>
         </div>
       )}
+      {/* <div className="absolute  bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-yellow-500 via-yellow-100 to-transparent"></div> */}
     </nav>
   );
 };

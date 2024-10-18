@@ -17,6 +17,7 @@ const Carousel=() => {
 
   return (
     <div className="w-full">
+           
       <Swiper
         modules={[Navigation, Pagination, Scrollbar, A11y]}
         spaceBetween={0} // Set space between slides to 0

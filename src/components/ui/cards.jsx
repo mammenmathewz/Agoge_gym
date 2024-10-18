@@ -1,56 +1,47 @@
 import { cn } from "../../lib/utils";
-import {
-  IconAdjustmentsBolt,
-  IconHeart,
-  IconHelp,
-  IconTerminal2,
-} from "@tabler/icons-react";
+
 
 export function FeaturesSectionDemo() {
   const features = [
     {
-      title: "Attractive membership offers",
+      title: "Attractive Membership Offers",
       description: [
         "Very attractive inaugural offers",
         "Attractive family packages",
-        "Attractive corporate packages",
+        "Corporate packages designed for you", 
       ],
-     
-      logo: "path/to/logo1.png", // Replace with the actual path to your image
+      logo: "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLXNoaWVsZC1jaGVjayI+PHBhdGggZD0iTTIwIDEzYzAgNS0zLjUgNy41LTcuNjYgOC45NWExIDEgMCAwIDEtLjY3LS4wMUM3LjUgMjAuNSA0IDE4IDQgMTNWNmExIDEgMCAwIDEgMS0xYzIgMCA0LjUtMS4yIDYuMjQtMi43MmExLjE3IDEuMTcgMCAwIDEgMS41MiAwQzE0LjUxIDMuODEgMTcgNSAxOSA1YTEgMSAwIDAgMSAxIDF6Ii8+PHBhdGggZD0ibTkgMTIgMiAyIDQtNCIvPjwvc3ZnPg==", // Replace with the actual path to your image
     },
     {
-      title: "Personal training at its best",
+      title: "Personal Training at its Best",
       description: [
         "Certified personal trainers",
         "100% assured weight gain and loss program",
-        "100% assured strength training",
+        "Strength training for all levels",
       ],
-   
-      logo: "path/to/logo2.png", // Replace with the actual path to your image
+      logo: ''
     },
     {
-      title: "Exclusively for our female clients",
+      title: "Exclusive Services for Women",
       description: [
-        "Certified female personal trainers",
-        "100% exclusive floor for females",
+        "Certified female trainers",
+        "Exclusive gym floor for women",
         "Attractive family packages",
       ],
-      
-      logo: "path/to/logo3.png", // Replace with the actual path to your image
+      logo:"",
     },
     {
-      title: "Build your career with us",
+      title: "Build Your Career with Us",
       description: [
-        "Structured training program for trainers",
-        "Govt approved trainers certification program",
+        "Structured training for aspiring trainers",
+        "Government-approved certification",
       ],
-
-      logo: "path/to/logo4.png", // Replace with the actual path to your image
+      logo: "" 
     },
   ];
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 relative z-10 py-10 max-w-7xl mx-auto">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 py-10 max-w-7xl mx-auto">
       {features.map((feature, index) => (
         <Feature key={feature.title} {...feature} index={index} />
       ))}
@@ -58,35 +49,37 @@ export function FeaturesSectionDemo() {
   );
 }
 
-const Feature = ({ title, description, icon, index, logo }) => {
+const Feature = ({ title, description, logo, index }) => {
   return (
     <div
       className={cn(
-        "flex flex-col lg:border-r py-10 relative group/feature dark:border-neutral-800",
-        (index === 0 || index === 2) && "lg:border-l dark:border-neutral-800",
+        "flex flex-col items-center text-center p-6 rounded-lg shadow-lg transition-transform duration-300 transform hover:scale-105 group bg-white dark:bg-neutral-900",
+        (index === 0 || index === 2) && "lg:border-l lg:border-r dark:border-neutral-800",
         index < 2 && "lg:border-b dark:border-neutral-800"
       )}
     >
-      {index < 2 && (
-        <div className="opacity-0 group-hover/feature:opacity-100 transition duration-200 absolute inset-0 h-full w-full bg-gradient-to-t from-neutral-100 dark:from-neutral-800 to-transparent pointer-events-none" />
-      )}
-      {index >= 2 && (
-        <div className="opacity-0 group-hover/feature:opacity-100 transition duration-200 absolute inset-0 h-full w-full bg-gradient-to-b from-neutral-100 dark:from-neutral-800 to-transparent pointer-events-none" />
-      )}
-      <div className="mb-4 relative z-10 px-10 text-neutral-600 dark:text-neutral-400">
-        {logo && <img src={logo} alt={`${title} logo`} className="h-12 w-12 mb-2" />} {/* Logo */}
-        {icon}
+      <div className="mb-6 relative z-10">
+        {logo && (
+          <img
+            src={logo}
+            alt={`${title} logo`}
+            className="h-16 w-16 mb-4 mx-auto"
+          />
+        )}
       </div>
-      <div className="text-lg font-bold mb-2 relative z-10 px-10">
-        <h3 className="group-hover/feature:translate-x-2 transition duration-200 inline-block text-neutral-800 dark:text-neutral-100">
+      <div className="text-lg font-bold mb-4 relative z-10">
+        <h3 className="group-hover:text-yellow-500 transition-colors duration-300 text-neutral-800 dark:text-neutral-100">
           {title}
         </h3>
       </div>
-      <ul className="text-sm text-neutral-600 dark:text-neutral-300 max-w-xs relative z-10 px-10 list-disc pl-5">
+      <ul className="text-sm text-neutral-600 dark:text-neutral-300 max-w-xs mx-auto list-disc pl-5 space-y-2">
         {description.map((item, idx) => (
-          <li key={idx}>{item}</li>
+          <li key={idx} className="group-hover:text-yellow-400 transition-colors duration-300">
+            {item}
+          </li>
         ))}
       </ul>
     </div>
   );
 };
+
