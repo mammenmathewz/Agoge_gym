@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import side2 from '../../assets/side2.png'
+import side2 from "../../assets/side2.png";
 
 export function LampDemo() {
   return (
@@ -13,12 +13,12 @@ export function LampDemo() {
           duration: 0.8,
           ease: "easeInOut",
         }}
-        className="mt-8 bg-gradient-to-br from-slate-300 to-slate-500 py-4 bg-clip-text text-center text-4xl font-medium tracking-tight text-transparent md:text-7xl z-50"
+        className=" bg-gradient-to-br from-slate-300 to-slate-500  bg-clip-text text-center text-4xl font-medium tracking-tight text-transparent md:text-7xl z-50"
       >
-        FITNESS RECONFIGURED<br /> WELCOME
-        BE THE PART OF #1 FITNESS STUDIO OF THE REGION
+        FITNESS RECONFIGURED
+        <br /> WELCOME BE THE PART OF #1 FITNESS STUDIO OF THE REGION
       </motion.h1>
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0, y: 100 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{
@@ -26,11 +26,8 @@ export function LampDemo() {
           duration: 0.8,
           ease: "easeInOut",
         }}
-        className="mt-16 relative z-10 w-full max-w-lg"
-      >
-        
-      </motion.div>
-    
+        className=" relative z-10 w-full max-w-lg"
+      ></motion.div>
     </LampContainer>
   );
 }
@@ -43,7 +40,10 @@ const LampContainer = ({ children, className = "" }) => {
     return () => clearTimeout(timer);
   }, []);
 
-  const containerClasses = `relative flex min-h-screen flex-col items-center justify-center overflow-hidden bg-black w-full rounded-md z-0 ${isLampActive ? 'lamp-active' : ''} ${className}`.trim();
+  const containerClasses =
+    `relative flex min-h-screen flex-col items-center justify-center overflow-hidden bg-black w-full rounded-md z-0 ${
+      isLampActive ? "lamp-active" : ""
+    } ${className}`.trim();
 
   return (
     <div className={containerClasses}>
@@ -109,7 +109,6 @@ const LampContainer = ({ children, className = "" }) => {
       <div className="relative z-50 flex -translate-y-80 flex-col items-center px-5 w-full">
         {children}
       </div>
-      
     </div>
   );
 };
