@@ -12,11 +12,11 @@ const HomePage = () => {
       {/* <main className="w-full px-4 sm:px-6 lg:px-8 py-12"> */}
 
       <div className="text-center ">
-        <div className="pt-10">
+        <div className="">
           <Carousel />
         </div>
       </div>
-      <div className="flex flex-col md:flex-row items-center text-center md:text-left md:items-start max-w-7xl pt-20 mx-auto">
+      {/* <div className="flex flex-col md:flex-row items-center text-center md:text-left md:items-start max-w-7xl pt-20 mx-auto">
         <div className="md:w-1/2 md:pr-8">
           <img
             src={sparatans}
@@ -35,7 +35,7 @@ const HomePage = () => {
             with our fitness center concept.
           </p>
         </div>
-      </div>
+      </div> */}
 
       <div className="pt-9">
         <SparklesPreview />

@@ -1,32 +1,52 @@
-import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
-import { Swiper, SwiperSlide } from 'swiper/react';
+import React from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination, Scrollbar, A11y, Autoplay } from "swiper/modules"; // Import Autoplay
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "swiper/css/scrollbar";
 
-// Import Swiper styles
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-import 'swiper/css/scrollbar';
-
-import slide from '../assets/banner/slide.jpg';
-import slide1 from '../assets/banner/slide1.jpg';
-import slide2 from '../assets/banner/slide2.jpg';
-import slide3 from '../assets/banner/slide3.jpg';
+// Import both high-quality (for desktop) and low-quality (for mobile) images
+import banner1pc from "../assets/banner/banner1pc.jpg";
+import banner1mob from "../assets/banner/banner1mob.jpg";
+import banner2pc from "../assets/banner/banner2pc.jpg";
+import banner2mob from "../assets/banner/banner2mob.jpg";
+import banner3pc from "../assets/banner/banner3pc.jpg";
+import banner3mob from "../assets/banner/banner3mob.jpg";
 
 const Carousel = () => {
-  const images = [slide, slide1, slide2, slide3];
+  // Array of images and corresponding text
+  const slides = [
+    { 
+      desktop: banner1pc, 
+      mobile: banner1mob, 
+      text: "FITNESS RECONFIGURED" 
+    },
+    { 
+      desktop: banner2pc, 
+      mobile: banner2mob, 
+      text: "Discover Amazing Products" 
+    },
+    { 
+      desktop: banner3pc, 
+      mobile: banner3mob, 
+      text: "Define Yourself" 
+    },
+  ];
 
   return (
-    <div className="w-full h-[60vh] md:h-[80vh]"> {/* Responsive height */}
+    <div className="w-full relative"> {/* Full width container */}
       <Swiper
-        modules={[Navigation, Pagination, Scrollbar, A11y]}
+        modules={[Navigation, Pagination, Scrollbar, A11y, Autoplay]} // Include Autoplay module
         spaceBetween={0}
         slidesPerView={1}
+        autoplay={{
+          delay: 3000, // Delay between slides in milliseconds (3 seconds here)
+          disableOnInteraction: false, // Keep autoplay running after user interactions
+        }}
         navigation={{
-          nextEl: '.swiper-button-next',
-          prevEl: '.swiper-button-prev',
-          style: {
-            color: 'gray',
-          },
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
         }}
         pagination={{
           clickable: true,
@@ -35,15 +55,22 @@ const Carousel = () => {
         }}
         scrollbar={{ draggable: true }}
         loop={true}
-        className="w-full h-full" // Make sure Swiper takes the full height and width
+        className="w-full"
       >
-        {images.map((src, index) => (
-          <SwiperSlide key={index} className="flex justify-center items-center h-full">
-            <img
-              src={src}
-              alt={`Slide ${index + 1}`}
-              className="w-full h-full object-cover" // Ensure the image covers the entire slide space
-            />
+        {slides.map((slide, index) => (
+          <SwiperSlide key={index} className="flex justify-center items-center w-full h-full relative">
+            <picture className="w-full h-full">
+              <source media="(max-width: 640px)" srcSet={slide.mobile} />
+              <img
+                src={slide.desktop}
+                alt={`Slide ${index + 1}`}
+                className="w-full h-full object-cover" // Use h-full to fill the height as well
+              />
+            </picture>
+            {/* Overlay Text */}
+            <div className="absolute inset-0 flex justify-center items-center bg-black bg-opacity-50 text-white text-5xl font-bold p-4">
+              {slide.text}
+            </div>
           </SwiperSlide>
         ))}
       </Swiper>
