@@ -1,9 +1,8 @@
 import { cn } from "../../lib/utils";
-import icon1 from '../../assets/icon1.png'
-import icon2 from '../../assets/icon2.png'
-import icon3 from '../../assets/icon3.png'
-import icon4 from '../../assets/icon4.png'
-
+import icon1 from '../../assets/icon1.png';
+import icon2 from '../../assets/icon2.png';
+import icon3 from '../../assets/icon3.png';
+import icon4 from '../../assets/icon4.png';
 
 export function FeaturesSectionDemo() {
   const features = [
@@ -12,7 +11,7 @@ export function FeaturesSectionDemo() {
       description: [
         "Very attractive inaugural offers",
         "Attractive family packages",
-        "Corporate packages designed for you", 
+        "Corporate packages designed for you",
       ],
       logo: icon1
     },
@@ -23,7 +22,7 @@ export function FeaturesSectionDemo() {
         "100% assured weight gain and loss program",
         "Strength training for all levels",
       ],
-      logo:icon2
+      logo: icon2
     },
     {
       title: "Exclusive Services for Women",
@@ -49,6 +48,13 @@ export function FeaturesSectionDemo() {
       {features.map((feature, index) => (
         <Feature key={feature.title} {...feature} index={index} />
       ))}
+      <style jsx>{`
+        @media (hover: none) {
+          .group:active {
+            background-color: rgba(255, 255, 0, 0.1); /* Change to your desired color */
+          }
+        }
+      `}</style>
     </div>
   );
 }
@@ -59,10 +65,11 @@ const Feature = ({ title, description, logo, index }) => {
       className={cn(
         "flex flex-col items-center text-center p-6 rounded-lg shadow-lg transition-transform duration-300 transform hover:scale-105 group bg-white dark:bg-neutral-900",
         (index === 0 || index === 2) && "lg:border-l lg:border-r dark:border-neutral-800",
-        index < 2 && "lg:border-b dark:border-neutral-800"
+        index < 2 && "lg:border-b dark:border-neutral-800",
+        "cursor-pointer" // Add cursor pointer for better UX
       )}
     >
-      <div className="mb-6 relative z-10 ">
+      <div className="mb-6 relative z-10">
         {logo && (
           <img
             src={logo}
@@ -86,4 +93,3 @@ const Feature = ({ title, description, logo, index }) => {
     </div>
   );
 };
-
