@@ -13,6 +13,7 @@ import banner2pc from "../assets/banner/banner2pc.jpg";
 import banner2mob from "../assets/banner/banner2mob.jpg";
 import banner3pc from "../assets/banner/banner3pc.jpg";
 import banner3mob from "../assets/banner/banner3mob.jpg";
+import { BackgroundLinesDemo } from "./Heading";
 
 const Carousel = () => {
   // Array of images and corresponding text
@@ -69,7 +70,7 @@ const Carousel = () => {
             </picture>
             {/* Overlay Text */}
             <div className="absolute inset-0 flex justify-center items-center bg-black bg-opacity-50 text-white text-5xl font-bold p-4">
-              {slide.text}
+              <BackgroundLinesDemo heading={slide.text}/>
             </div>
           </SwiperSlide>
         ))}

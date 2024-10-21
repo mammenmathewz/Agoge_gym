@@ -37,7 +37,7 @@ const HomePage = () => {
         </div>
       </div> */}
 
-      <div className="pt-2">
+      <div className="">
         <SparklesPreview />
       </div>
 
